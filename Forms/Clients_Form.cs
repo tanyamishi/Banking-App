@@ -14,14 +14,20 @@ namespace Banking_App
     public partial class Clients_Form : Form
     {
         BankingApp bank = new BankingApp();
-         Client client = new Client();
+        Client client = new Client();
         const string PATH_TO_DATA = ".//clients.txt";
 
         public Clients_Form()
         {
             InitializeComponent();
-            bank = bank.LoadData(PATH_TO_DATA);
 
+            if (!File.Exists(PATH_TO_DATA))
+            {
+                File.Create(PATH_TO_DATA);
+                bank.SaveData(PATH_TO_DATA);
+            }
+
+            bank = bank.LoadData(PATH_TO_DATA);
 
             DateTime currentDate = DateTime.Now;
             if (bank.LastInterestCalculation != DateTime.MinValue)
@@ -33,20 +39,15 @@ namespace Banking_App
                     bank.SaveData(PATH_TO_DATA);
                 }
             }
-
-
+            CheckDepositTerm();
             timer1.Start();
-
-
-
-
-
         }
-        
+
         private void searchButton_Click(object sender, EventArgs e)
         {
             var result = bank.Search(nameBoxSrc.Text, idBoxSrc.Text, passportBoxSrc.Text, rnoBoxSrc.Text);
-            if (result.Count == 0 ) {
+            if (result.Count == 0)
+            {
                 MessageBox.Show("Нічого не знайдено.");
             }
             else
@@ -55,15 +56,13 @@ namespace Banking_App
             }
         }
 
-
         private void resultGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedClient = resultGridView.Rows[e.RowIndex].DataBoundItem as Client;
             var infoClient = new ClientInfo_Form(bank, selectedClient);
             infoClient.ShowDialog();
+            UpdateClientGrid();
         }
-
-
 
         private void Clients_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -71,19 +70,42 @@ namespace Banking_App
             bank.SaveData(PATH_TO_DATA);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+      /*  private void timer1_Tick(object sender, EventArgs e)
         {
             bank.ApplyDailyInterest();
             bank.SaveData(PATH_TO_DATA);
             UpdateClientGrid();
-            MessageBox.Show("Проценты начислены всем клиентам.");
-        }
+            MessageBox.Show("Відсотки нараховані усім клієнтам.");
+        }*/
 
         private void UpdateClientGrid()
         {
             clientBindingSource.DataSource = null;
             clientBindingSource.DataSource = bank.Clients;
             resultGridView.Refresh();
+        }
+
+        private void CheckDepositTerm()
+        {
+            DateTime currentDate = DateTime.Now;
+            foreach (var client in bank.Clients)
+            {
+                if (client.DepositCategory == "Терміновий вклад" && client.TerminDeposit > 0)
+                {
+
+                    DateTime depositEndDate = client.LastOperation.AddDays(client.TerminDeposit);
+
+                    if (currentDate >= depositEndDate)
+                    {
+                        MessageBox.Show($"Срок депозиту {client.Name} вичерпано. Необходимо выдати гроші.");
+                        ClientInfo_Form clientForm =  new ClientInfo_Form(bank, client);
+                        clientForm.ShowDialog();
+                        client.DepositCategory = "None";
+                        client.TerminDeposit = 0;
+                        bank.SaveData(PATH_TO_DATA);
+                    }
+                }
+            }
         }
     }
 }

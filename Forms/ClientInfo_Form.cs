@@ -14,8 +14,9 @@ namespace Banking_App
 {
     public partial class ClientInfo_Form : Form
     {
+        const string PATH_TO_DATA = ".//clients.txt";
         private Client client;
-        BankingApp bank ;
+        BankingApp bank;
         public ClientInfo_Form(BankingApp _bank, Client _client)
         {
             InitializeComponent();
@@ -65,6 +66,12 @@ namespace Banking_App
             }
         }
 
-     
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            bank.Clients.Remove(client);
+            bank.SaveData(PATH_TO_DATA);
+            MessageBox.Show("Клієнт успішно видалений.");
+            Close();
+        }
     }
 }

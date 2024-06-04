@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            percentUpDown = new NumericUpDown();
             cancelButton = new Button();
             saveButton = new Button();
             terminUpDown = new NumericUpDown();
@@ -38,11 +39,10 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            percentUpDown = new NumericUpDown();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)percentUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)terminUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sumUpDown).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)percentUpDown).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -62,6 +62,13 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(536, 411);
             panel1.TabIndex = 0;
+            // 
+            // percentUpDown
+            // 
+            percentUpDown.Location = new Point(214, 167);
+            percentUpDown.Name = "percentUpDown";
+            percentUpDown.Size = new Size(213, 27);
+            percentUpDown.TabIndex = 5;
             // 
             // cancelButton
             // 
@@ -94,9 +101,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(39, 248);
             label4.Name = "label4";
-            label4.Size = new Size(96, 20);
+            label4.Size = new Size(61, 20);
             label4.TabIndex = 6;
-            label4.Text = "Термін(міс.):";
+            label4.Text = "Термін:";
             // 
             // categoryBox
             // 
@@ -142,13 +149,6 @@
             label1.TabIndex = 0;
             label1.Text = "Сума вкладу:";
             // 
-            // percentUpDown
-            // 
-            percentUpDown.Location = new Point(214, 167);
-            percentUpDown.Name = "percentUpDown";
-            percentUpDown.Size = new Size(213, 27);
-            percentUpDown.TabIndex = 5;
-            // 
             // Deposit_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -159,9 +159,9 @@
             Text = "Внесок";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)percentUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)terminUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)sumUpDown).EndInit();
-            ((System.ComponentModel.ISupportInitialize)percentUpDown).EndInit();
             ResumeLayout(false);
         }
 

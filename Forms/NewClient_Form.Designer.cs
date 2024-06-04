@@ -54,6 +54,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top;
             panel1.BackColor = Color.Linen;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(cancelButton);
             panel1.Controls.Add(saveButton);
             panel1.Controls.Add(passportBox);
@@ -65,7 +66,7 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(80, 50);
+            panel1.Location = new Point(99, 47);
             panel1.MinimumSize = new Size(664, 491);
             panel1.Name = "panel1";
             panel1.Size = new Size(664, 491);
@@ -187,7 +188,7 @@
             Controls.Add(panel1);
             MinimumSize = new Size(880, 622);
             Name = "NewClient_Form";
-            Text = "NewAccount_Form";
+            Text = "Новий клієнт";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nameErrorProvider).EndInit();

@@ -13,7 +13,7 @@ namespace Banking_App
 {
     public partial class NewClient_Form : Form
     {
-     
+
         Client newClient = new Client();
         BankingApp bank = new BankingApp();
         const string PATH_TO_DATA = ".//clients.txt";
@@ -52,6 +52,11 @@ namespace Banking_App
                 nameErrorProvider.SetError(rnoBox, "РНОКПП не може містити букв або розділових знаків.");
                 return;
             }
+            else if (rnoBox.Text.Length != 10)
+            {
+                nameErrorProvider.SetError(rnoBox, "РНОКПП містить 10 симіолів. ");
+                return;
+            }
             else
             {
                 nameErrorProvider.SetError(rnoBox, string.Empty);
@@ -64,7 +69,7 @@ namespace Banking_App
             }
             else if (passportBox.Text.Length < 6)
             {
-                nameErrorProvider.SetError(passportBox, "Номер паспорта не може містити меньше ніж 6 символів.");
+                nameErrorProvider.SetError(passportBox, "Номер паспорта не може містити менше ніж 6 символів.");
                 return;
             }
             else if (passportBox.Text.Any(char.IsPunctuation))
@@ -77,17 +82,17 @@ namespace Banking_App
                 nameErrorProvider.SetError(passportBox, string.Empty);
             }
 
-                newClient.Name = nameBox.Text;
-                newClient.PassportNum = passportBox.Text;
-                newClient.RNOKPP = Convert.ToInt32(rnoBox.Text);
-                newClient.Id = Convert.ToInt32(idBox.Text);
+            newClient.Name = nameBox.Text;
+            newClient.PassportNum = passportBox.Text;
+            newClient.RNOKPP = Convert.ToInt32(rnoBox.Text);
+            newClient.Id = Convert.ToInt32(idBox.Text);
 
-                bank.AddNewClient(newClient);
-                bank.SaveData(PATH_TO_DATA);
+            bank.AddNewClient(newClient);
+            bank.SaveData(PATH_TO_DATA);
 
-                MessageBox.Show("Збережено.");
-                Close();
-            
+            MessageBox.Show("Збережено.");
+            Close();
+
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

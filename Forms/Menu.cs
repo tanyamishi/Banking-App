@@ -22,11 +22,9 @@ namespace Banking_App
 
         private void newAccountToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //BankingApp bank = new BankingApp();
-
-            // При створенні нової форми, передайте їй об'єкт bank
+           
             NewClient_Form newAccountForm = new NewClient_Form();
-           // NewAccount_Form newacc = new NewAccount_Form();
+         
             newAccountForm.MdiParent = this;
             newAccountForm.Show();
 
@@ -39,7 +37,7 @@ namespace Banking_App
             customers.Show();
         }
 
-        private void вийтиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();    
         }

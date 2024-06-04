@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             searchButton = new Button();
             passportBoxSrc = new TextBox();
@@ -75,12 +76,13 @@
             // 
             // searchButton
             // 
-            searchButton.Location = new Point(549, 156);
+            searchButton.BackColor = Color.BurlyWood;
+            searchButton.Location = new Point(556, 164);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(143, 35);
             searchButton.TabIndex = 8;
             searchButton.Text = "Пошук";
-            searchButton.UseVisualStyleBackColor = true;
+            searchButton.UseVisualStyleBackColor = false;
             searchButton.Click += searchButton_Click;
             // 
             // passportBoxSrc
@@ -159,7 +161,7 @@
             resultGridView.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, LastOperation, DepositCategory, nameDataGridViewTextBoxColumn, rNOKPPDataGridViewTextBoxColumn, passportNumDataGridViewTextBoxColumn, balanceDataGridViewTextBoxColumn });
             resultGridView.DataSource = clientBindingSource;
             resultGridView.GridColor = SystemColors.InfoText;
-            resultGridView.Location = new Point(35, 248);
+            resultGridView.Location = new Point(30, 247);
             resultGridView.MultiSelect = false;
             resultGridView.Name = "resultGridView";
             resultGridView.ReadOnly = true;
@@ -172,11 +174,14 @@
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightGray;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            idDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             idDataGridViewTextBoxColumn.HeaderText = "Особистий рахунок";
             idDataGridViewTextBoxColumn.MinimumWidth = 6;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Width = 125;
+            idDataGridViewTextBoxColumn.Width = 159;
             // 
             // LastOperation
             // 
@@ -185,7 +190,7 @@
             LastOperation.MinimumWidth = 6;
             LastOperation.Name = "LastOperation";
             LastOperation.ReadOnly = true;
-            LastOperation.Width = 125;
+            LastOperation.Width = 135;
             // 
             // DepositCategory
             // 
@@ -194,16 +199,16 @@
             DepositCategory.MinimumWidth = 6;
             DepositCategory.Name = "DepositCategory";
             DepositCategory.ReadOnly = true;
-            DepositCategory.Width = 125;
+            DepositCategory.Width = 157;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             nameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
-            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nameDataGridViewTextBoxColumn.MinimumWidth = 10;
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             nameDataGridViewTextBoxColumn.ReadOnly = true;
-            nameDataGridViewTextBoxColumn.Width = 125;
+            nameDataGridViewTextBoxColumn.Width = 62;
             // 
             // rNOKPPDataGridViewTextBoxColumn
             // 
@@ -212,7 +217,7 @@
             rNOKPPDataGridViewTextBoxColumn.MinimumWidth = 6;
             rNOKPPDataGridViewTextBoxColumn.Name = "rNOKPPDataGridViewTextBoxColumn";
             rNOKPPDataGridViewTextBoxColumn.ReadOnly = true;
-            rNOKPPDataGridViewTextBoxColumn.Width = 125;
+            rNOKPPDataGridViewTextBoxColumn.Width = 99;
             // 
             // passportNumDataGridViewTextBoxColumn
             // 
@@ -221,7 +226,7 @@
             passportNumDataGridViewTextBoxColumn.MinimumWidth = 6;
             passportNumDataGridViewTextBoxColumn.Name = "passportNumDataGridViewTextBoxColumn";
             passportNumDataGridViewTextBoxColumn.ReadOnly = true;
-            passportNumDataGridViewTextBoxColumn.Width = 125;
+            passportNumDataGridViewTextBoxColumn.Width = 142;
             // 
             // balanceDataGridViewTextBoxColumn
             // 
@@ -230,12 +235,12 @@
             balanceDataGridViewTextBoxColumn.MinimumWidth = 6;
             balanceDataGridViewTextBoxColumn.Name = "balanceDataGridViewTextBoxColumn";
             balanceDataGridViewTextBoxColumn.ReadOnly = true;
-            balanceDataGridViewTextBoxColumn.Width = 125;
+            balanceDataGridViewTextBoxColumn.Width = 93;
             // 
             // timer1
             // 
-            timer1.Interval = 86400000;
-            timer1.Tick += timer1_Tick;
+            timer1.Interval = 86400;
+         
             // 
             // Clients_Form
             // 
@@ -269,6 +274,7 @@
         private TextBox rnoBoxSrc;
         private BindingSource clientBindingSource;
         private DataGridView resultGridView;
+        private System.Windows.Forms.Timer timer1;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn LastOperation;
         private DataGridViewTextBoxColumn DepositCategory;
@@ -276,6 +282,5 @@
         private DataGridViewTextBoxColumn rNOKPPDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn passportNumDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn balanceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -11,7 +11,7 @@ namespace Banking_App.Models
     {
         public BankingApp() {
             Clients = new List<Client>();
-            FillWithTestData(100);
+            //FillWithTestData(100);
         }
 
         public List<Client> Clients { get; set; }
@@ -65,6 +65,10 @@ namespace Banking_App.Models
         public BankingApp LoadData(string path)
         {
             var jsonString = File.ReadAllText(path);
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return new BankingApp();
+            }
             return JsonSerializer.Deserialize<BankingApp>(jsonString);
         }
 

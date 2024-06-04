@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            deleteButton = new Button();
             passportBoxInf = new TextBox();
             rnoBoxInf = new TextBox();
             nameBoxInf = new TextBox();
@@ -63,6 +64,7 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.ActiveBorder;
+            splitContainer1.Panel1.Controls.Add(deleteButton);
             splitContainer1.Panel1.Controls.Add(passportBoxInf);
             splitContainer1.Panel1.Controls.Add(rnoBoxInf);
             splitContainer1.Panel1.Controls.Add(nameBoxInf);
@@ -90,10 +92,21 @@
             splitContainer1.SplitterDistance = 414;
             splitContainer1.TabIndex = 0;
             // 
+            // deleteButton
+            // 
+            deleteButton.Location = new Point(240, 490);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(150, 61);
+            deleteButton.TabIndex = 10;
+            deleteButton.Text = "Видалити клієнта";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
+            // 
             // passportBoxInf
             // 
             passportBoxInf.Location = new Point(12, 400);
             passportBoxInf.Name = "passportBoxInf";
+            passportBoxInf.ReadOnly = true;
             passportBoxInf.Size = new Size(378, 27);
             passportBoxInf.TabIndex = 9;
             // 
@@ -101,6 +114,7 @@
             // 
             rnoBoxInf.Location = new Point(13, 311);
             rnoBoxInf.Name = "rnoBoxInf";
+            rnoBoxInf.ReadOnly = true;
             rnoBoxInf.Size = new Size(377, 27);
             rnoBoxInf.TabIndex = 8;
             // 
@@ -108,6 +122,7 @@
             // 
             nameBoxInf.Location = new Point(13, 215);
             nameBoxInf.Name = "nameBoxInf";
+            nameBoxInf.ReadOnly = true;
             nameBoxInf.Size = new Size(377, 27);
             nameBoxInf.TabIndex = 7;
             // 
@@ -116,6 +131,7 @@
             idBoxInf.Enabled = false;
             idBoxInf.Location = new Point(13, 123);
             idBoxInf.Name = "idBoxInf";
+            idBoxInf.ReadOnly = true;
             idBoxInf.Size = new Size(377, 27);
             idBoxInf.TabIndex = 6;
             // 
@@ -185,9 +201,9 @@
             label9.AutoSize = true;
             label9.Location = new Point(37, 335);
             label9.Name = "label9";
-            label9.Size = new Size(93, 20);
+            label9.Size = new Size(58, 20);
             label9.TabIndex = 7;
-            label9.Text = "Термін(міс.)";
+            label9.Text = "Термін";
             // 
             // label8
             // 
@@ -292,5 +308,6 @@
         private TextBox categoryTextBox;
         private Label label9;
         private Label label8;
+        private Button deleteButton;
     }
 }

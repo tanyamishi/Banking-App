@@ -32,21 +32,15 @@
             newAccountToolStripMenuItem = new ToolStripMenuItem();
             newAccountToolStripMenuItem1 = new ToolStripMenuItem();
             attCustomersToolStripMenuItem = new ToolStripMenuItem();
-            транзакціїToolStripMenuItem = new ToolStripMenuItem();
-            депозитToolStripMenuItem = new ToolStripMenuItem();
-            кредитToolStripMenuItem = new ToolStripMenuItem();
-            зняттяToolStripMenuItem = new ToolStripMenuItem();
-            переказToolStripMenuItem = new ToolStripMenuItem();
             іншеToolStripMenuItem = new ToolStripMenuItem();
-            вийтиЗАкаунтуToolStripMenuItem = new ToolStripMenuItem();
-            вийтиToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { newAccountToolStripMenuItem, транзакціїToolStripMenuItem, іншеToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { newAccountToolStripMenuItem, іншеToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1089, 28);
@@ -57,73 +51,36 @@
             // 
             newAccountToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newAccountToolStripMenuItem1, attCustomersToolStripMenuItem });
             newAccountToolStripMenuItem.Name = "newAccountToolStripMenuItem";
-            newAccountToolStripMenuItem.Size = new Size(70, 24);
-            newAccountToolStripMenuItem.Text = "Акаунт";
+            newAccountToolStripMenuItem.Size = new Size(90, 24);
+            newAccountToolStripMenuItem.Text = "Клієнтура";
             // 
             // newAccountToolStripMenuItem1
             // 
             newAccountToolStripMenuItem1.Name = "newAccountToolStripMenuItem1";
-            newAccountToolStripMenuItem1.Size = new Size(189, 26);
-            newAccountToolStripMenuItem1.Text = "Новий Акаунт";
+            newAccountToolStripMenuItem1.Size = new Size(183, 26);
+            newAccountToolStripMenuItem1.Text = "Новий клієнт";
             newAccountToolStripMenuItem1.Click += newAccountToolStripMenuItem1_Click;
             // 
             // attCustomersToolStripMenuItem
             // 
             attCustomersToolStripMenuItem.Name = "attCustomersToolStripMenuItem";
-            attCustomersToolStripMenuItem.Size = new Size(189, 26);
+            attCustomersToolStripMenuItem.Size = new Size(183, 26);
             attCustomersToolStripMenuItem.Text = "Клієнти";
             attCustomersToolStripMenuItem.Click += attCustomersToolStripMenuItem_Click;
             // 
-            // транзакціїToolStripMenuItem
-            // 
-            транзакціїToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { депозитToolStripMenuItem, кредитToolStripMenuItem, зняттяToolStripMenuItem, переказToolStripMenuItem });
-            транзакціїToolStripMenuItem.Name = "транзакціїToolStripMenuItem";
-            транзакціїToolStripMenuItem.Size = new Size(96, 24);
-            транзакціїToolStripMenuItem.Text = "Транзакції";
-            // 
-            // депозитToolStripMenuItem
-            // 
-            депозитToolStripMenuItem.Name = "депозитToolStripMenuItem";
-            депозитToolStripMenuItem.Size = new Size(224, 26);
-            депозитToolStripMenuItem.Text = "Депозит";
-            // 
-            // кредитToolStripMenuItem
-            // 
-            кредитToolStripMenuItem.Name = "кредитToolStripMenuItem";
-            кредитToolStripMenuItem.Size = new Size(224, 26);
-            кредитToolStripMenuItem.Text = "Кредит";
-            // 
-            // зняттяToolStripMenuItem
-            // 
-            зняттяToolStripMenuItem.Name = "зняттяToolStripMenuItem";
-            зняттяToolStripMenuItem.Size = new Size(224, 26);
-            зняттяToolStripMenuItem.Text = "Зняття";
-            // 
-            // переказToolStripMenuItem
-            // 
-            переказToolStripMenuItem.Name = "переказToolStripMenuItem";
-            переказToolStripMenuItem.Size = new Size(224, 26);
-            переказToolStripMenuItem.Text = "Переказ";
-            // 
             // іншеToolStripMenuItem
             // 
-            іншеToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { вийтиЗАкаунтуToolStripMenuItem, вийтиToolStripMenuItem });
+            іншеToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             іншеToolStripMenuItem.Name = "іншеToolStripMenuItem";
             іншеToolStripMenuItem.Size = new Size(56, 24);
             іншеToolStripMenuItem.Text = "Інше";
             // 
-            // вийтиЗАкаунтуToolStripMenuItem
+            // exitToolStripMenuItem
             // 
-            вийтиЗАкаунтуToolStripMenuItem.Name = "вийтиЗАкаунтуToolStripMenuItem";
-            вийтиЗАкаунтуToolStripMenuItem.Size = new Size(224, 26);
-            вийтиЗАкаунтуToolStripMenuItem.Text = "Вийти з акаунту";
-            // 
-            // вийтиToolStripMenuItem
-            // 
-            вийтиToolStripMenuItem.Name = "вийтиToolStripMenuItem";
-            вийтиToolStripMenuItem.Size = new Size(224, 26);
-            вийтиToolStripMenuItem.Text = "Вийти";
-            вийтиToolStripMenuItem.Click += вийтиToolStripMenuItem_Click;
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(224, 26);
+            exitToolStripMenuItem.Text = "Вийти";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // Menu
             // 
@@ -148,13 +105,7 @@
         private ToolStripMenuItem newAccountToolStripMenuItem;
         private ToolStripMenuItem newAccountToolStripMenuItem1;
         private ToolStripMenuItem attCustomersToolStripMenuItem;
-        private ToolStripMenuItem транзакціїToolStripMenuItem;
-        private ToolStripMenuItem депозитToolStripMenuItem;
-        private ToolStripMenuItem кредитToolStripMenuItem;
-        private ToolStripMenuItem зняттяToolStripMenuItem;
-        private ToolStripMenuItem переказToolStripMenuItem;
         private ToolStripMenuItem іншеToolStripMenuItem;
-        private ToolStripMenuItem вийтиЗАкаунтуToolStripMenuItem;
-        private ToolStripMenuItem вийтиToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }
