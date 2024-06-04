@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banking_App.Models
 {
+    // Клієнт.Відповідає за властивості, що має єкземпляр клієнта, зняття та нарвхування грошей.
     public class Client
     {
         public int Id { get; set; }

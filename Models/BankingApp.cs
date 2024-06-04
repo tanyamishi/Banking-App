@@ -9,6 +9,7 @@ namespace Banking_App.Models
 {
     public class BankingApp
     {
+        // Банківський застосунок. Відповідвє за пошук, збереження та видобування даних з текстового файлу, нарахування відсотків.
         public BankingApp() {
             Clients = new List<Client>();
             //FillWithTestData(100);
@@ -70,20 +71,6 @@ namespace Banking_App.Models
                 return new BankingApp();
             }
             return JsonSerializer.Deserialize<BankingApp>(jsonString);
-        }
-
-        public void ApplyDailyInterest()
-        {
-            foreach (var client in Clients)
-            {
-                if (client.DepositCategory != "None")
-                {
-                    decimal dailyInterestRate = client.DepositPercent / 100m / 365; 
-                    client.Balance += client.Balance * dailyInterestRate;
-                    client.LastOperation = DateTime.Now;
-                }
-            }
-            LastInterestCalculation = DateTime.Now;
         }
 
         public void ApplyInterestForDays(int days)

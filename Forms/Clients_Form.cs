@@ -40,7 +40,6 @@ namespace Banking_App
                 }
             }
             CheckDepositTerm();
-            timer1.Start();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -66,18 +65,8 @@ namespace Banking_App
 
         private void Clients_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            timer1.Stop();
             bank.SaveData(PATH_TO_DATA);
         }
-
-      /*  private void timer1_Tick(object sender, EventArgs e)
-        {
-            bank.ApplyDailyInterest();
-            bank.SaveData(PATH_TO_DATA);
-            UpdateClientGrid();
-            MessageBox.Show("Відсотки нараховані усім клієнтам.");
-        }*/
-
         private void UpdateClientGrid()
         {
             clientBindingSource.DataSource = null;
